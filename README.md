@@ -1,6 +1,3 @@
-<p align="center">
-  <img width="414" alt="yfitops" src="https://github.com/svaret/yfitops/blob/master/static/yfitops.png">
-</p>
 
 Setup:
 - install brew
@@ -10,11 +7,6 @@ Setup:
 
 How to get random album cover for an artist, exchange "pinchers" for "your" artist:
 
-- http://localhost:5000?artist=pinchers
-
-
-How to pull and push from/to github:
-- git pull origin master
-- git push origin master
+- http://127.0.0.1:5000/album-cover?artist=elvis
 
 
