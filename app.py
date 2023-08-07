@@ -5,7 +5,7 @@ from apiclient.discovery import build
 import requests
 from flask import Flask, render_template, request
 
-DISCOGS_TOKEN = 'AugrlbeikovAiGkBIqufmThyfiuRkyNboopdSFWD'
+DISCOGS_TOKEN = 'JLyawlHOYLPCOPyRQqVoASPqzwJAgRjldmGUNJwA'
 GOOGLE_API_KEY = 'AIzaSyBoaF8Iw2iP617qopJSC1N1QtDJiq4_Wk8'
 
 app = Flask(__name__)
@@ -19,6 +19,16 @@ def album_cover():
         'https://api.discogs.com/database/search?artist=' + artist + '&type=master&format=LP',
         headers={'Authorization': ('Discogs token=%s' % DISCOGS_TOKEN)}
     )
+    print('Status code:', response.status_code)
+    print('Headers:', response.headers)
+
+ 
+
+    response_json = response.json()
+    print(response_json)  # print the entire JSON response
+
+    if 'results' not in response_json:
+        return "No 'results' in JSON response"
 
     number_of_hits = len(response.json()['results'])
     if number_of_hits == 0:
